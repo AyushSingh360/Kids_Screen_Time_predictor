@@ -22,7 +22,7 @@ Thank you for your interest in contributing to the Kids Screen Time Predictor! T
 ### Local Development
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/kids-screen-time-predictor.git
+git clone https://github.com/AyushSingh360/kids-screen-time-predictor.git
 cd kids-screen-time-predictor
 
 # Install dependencies

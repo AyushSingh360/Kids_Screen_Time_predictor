@@ -26,7 +26,7 @@ A modern, responsive web application that uses machine learning principles to pr
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/kids-screen-time-predictor.git
+git clone https://github.com/AyushSingh360/kids-screen-time-predictor.git
 cd kids-screen-time-predictor
 ```
 
@@ -144,7 +144,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/kids-screen-time-predictor/issues) page
+1. Check the [Issues](https://github.com/AyushSingh360/kids-screen-time-predictor/issues) page
 2. Create a new issue with detailed information
 3. Join our community discussions
 
