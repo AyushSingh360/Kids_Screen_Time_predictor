@@ -1,0 +1,23 @@
+{
+  "name": "kids-screen-time-predictor",
+  "version": "1.0.0",
+  "description": "A modern web application to predict kids' screen time using machine learning",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'No build process needed for static files'"
+  },
+  "keywords": [
+    "screen-time",
+    "kids",
+    "predictor",
+    "machine-learning",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

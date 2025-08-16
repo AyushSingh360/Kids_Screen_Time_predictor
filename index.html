@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Screen Time Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header with Dark Mode Toggle -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>Screen Time Predictor</h1>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <div class="theme-toggle-track">
+                        <div class="theme-toggle-thumb">
+                            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="predictor-container">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <div class="welcome-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h2>Predict Kids' Screen Time</h2>
+                    <p>Enter your child's information below to get an AI-powered prediction of their daily screen time usage.</p>
+                </div>
+
+                <!-- Prediction Form -->
+                <div class="form-container">
+                    <form class="prediction-form" id="predictionForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="childAge">
+                                    <span class="label-icon">👶</span>
+                                    Child's Age
+                                </label>
+                                <input type="number" id="childAge" min="3" max="18" value="8" required>
+                                <span class="input-suffix">years</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dayType">
+                                    <span class="label-icon">📅</span>
+                                    Day Type
+                                </label>
+                                <select id="dayType" required>
+                                    <option value="weekday">Weekday</option>
+                                    <option value="weekend">Weekend</option>
+                                    <option value="holiday">Holiday</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="primaryActivity">
+                                    <span class="label-icon">🎯</span>
+                                    Primary Activity
+                                </label>
+                                <select id="primaryActivity" required>
+                                    <option value="school">School/Study</option>
+                                    <option value="gaming">Gaming</option>
+                                    <option value="creative">Creative Play</option>
+                                    <option value="reading">Reading</option>
+                                    <option value="social">Social Time</option>
+                                    <option value="outdoor">Outdoor Activities</option>
+                                    <option value="sports">Sports</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="previousScreenTime">
+                                    <span class="label-icon">⏱️</span>
+                                    Yesterday's Screen Time
+                                </label>
+                                <input type="number" id="previousScreenTime" min="0" max="24" step="0.5" value="2.5" required>
+                                <span class="input-suffix">hours</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="parentalControl">
+                                    <span class="label-icon">👨‍👩‍👧‍👦</span>
+                                    Parental Control Level
+                                </label>
+                                <select id="parentalControl" required>
+                                    <option value="strict">Strict Limits</option>
+                                    <option value="moderate">Moderate Limits</option>
+                                    <option value="relaxed">Relaxed Limits</option>
+                                    <option value="none">No Limits</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deviceAccess">
+                                    <span class="label-icon">📱</span>
+                                    Device Access
+                                </label>
+                                <select id="deviceAccess" required>
+                                    <option value="limited">Limited Access</option>
+                                    <option value="supervised">Supervised Access</option>
+                                    <option value="unrestricted">Unrestricted Access</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="predict-button" id="predictButton">
+                            <span class="button-text">Predict Screen Time</span>
+                            <div class="button-loader">
+                                <div class="loader-spinner"></div>
+                            </div>
+                            <div class="button-success">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Prediction Result -->
+                <div class="result-container" id="resultContainer">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Predicted Screen Time</h3>
+                        <div class="result-time" id="resultTime">
+                            <span class="hours">0</span>h <span class="minutes">0</span>m
+                        </div>
+                        <div class="result-confidence">
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                            <span class="confidence-text" id="confidenceText">Confidence: 0%</span>
+                        </div>
+                        <div class="result-insights" id="resultInsights">
+                            <p>Based on the provided information, this prediction considers your child's age, activity patterns, and parental controls.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Floating Particles Background -->
+        <div class="particles-container" id="particlesContainer"></div>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
