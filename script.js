@@ -61,20 +61,19 @@ class ParticleSystem {
     constructor() {
         this.container = document.getElementById('particlesContainer');
         this.particles = [];
-        this.maxParticles = 15;
+        this.maxParticles = 25;
         this.init();
     }
 
     init() {
         this.createParticles();
-        this.startAnimation();
     }
 
     createParticles() {
         for (let i = 0; i < this.maxParticles; i++) {
             setTimeout(() => {
                 this.createParticle();
-            }, i * 2000);
+            }, i * 1500);
         }
     }
 
@@ -83,14 +82,22 @@ class ParticleSystem {
         particle.className = 'particle';
         
         const startX = Math.random() * window.innerWidth;
-        const duration = 15 + Math.random() * 10;
-        const delay = Math.random() * 5;
+        const duration = 20 + Math.random() * 20;
+        const delay = Math.random() * 8;
+        const animationType = Math.floor(Math.random() * 5) + 1;
         
         particle.style.cssText = `
             left: ${startX}px;
             animation-duration: ${duration}s;
             animation-delay: ${delay}s;
         `;
+        
+        // Add random animation type class for variety
+        if (animationType === 1) particle.style.animationName = 'floatUp';
+        else if (animationType === 2) particle.style.animationName = 'floatDiagonal';
+        else if (animationType === 3) particle.style.animationName = 'floatZigzag';
+        else if (animationType === 4) particle.style.animationName = 'floatSlow';
+        else particle.style.animationName = 'floatPulse';
         
         this.container.appendChild(particle);
         
@@ -100,20 +107,6 @@ class ParticleSystem {
             }
             this.createParticle();
         }, (duration + delay) * 1000);
-    }
-
-    startAnimation() {
-        // Add CSS animation keyframes dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     }
 }
 
